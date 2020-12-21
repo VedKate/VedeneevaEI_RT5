@@ -1,0 +1,27 @@
+РК2 Веденеева Е.И. РТ5-31Б
+
+Вопрос: Как использовать функции агрегирования в LINQ?
+Ответ: 
+Добавив методы расширения в интерфейс IEnumerable<T>. Например, помимо стандартных операций вычисления среднего или максимального значения, можно создать настраиваемый метод агрегирования, который вычисляет одно значение на основе набора значений. LINQ реализует несколько методов агрегирования, включая Average, Min и Max, еоторые имеют множество перегрузок.
+
+Примеры:
+
+public static float Average (this System.Collections.Generic.IEnumerable<float> source);
+// Вычисляет среднее последовательности значений типа Single.
+
+public static long? Min (this System.Collections.Generic.IEnumerable<Nullable<long>> source);
+// Возвращает минимальное значение в последовательности значений Int64 обнуляемого типа.
+
+public static float? Max (this System.Collections.Generic.IEnumerable<Nullable<float>> source);
+// Возвращает максимальное значение в последовательности значений Single обнуляемого типа
+// Single Представляет число одиночной точности с плавающей запятой.
+
+
+public static class LINQExtension
+{
+    public static double NameOfFunction(this IEnumerable<double>? source)
+    {
+			// Реализация метода
+    }
+}
+// Конструкция метода расширения для типа double.
